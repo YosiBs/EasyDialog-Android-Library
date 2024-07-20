@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Library-Exercise2"
 include(":app")
 include(":EasyDialog")
+include(":SpannableTag")

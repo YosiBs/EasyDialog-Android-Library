@@ -14,22 +14,32 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/test_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TV: Hello World! This is SpannableTag library"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/test_MTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MTV: Hello World! This is SpannableTag library"
+
+            />
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/show_alert_dialog"
+            android:id="@+id/test_BTN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Test alert dialog"
-
+            android:text="Test spannable tag"
+            android:layout_marginTop="15dp"
             />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/show_input_dialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test input dialog"
 
-            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

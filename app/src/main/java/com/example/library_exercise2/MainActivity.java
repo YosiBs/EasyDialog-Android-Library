@@ -1,65 +1,41 @@
 package com.example.library_exercise2;
 
+
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.easydialog.DialogTypes.EasyAlertDialog;
-import com.example.easydialog.DialogTypes.EasyInputDialog;
-import com.example.easydialog.Interfaces.DialogListener;
+import com.example.spannabletag.SpannableParser;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textview.MaterialTextView;
 
 public class MainActivity extends AppCompatActivity {
+    private TextView tv;
+    private MaterialTextView mtv;
+    private MaterialButton btn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initViews();
+    }
 
-        findViewById(R.id.show_alert_dialog).setOnClickListener(v -> {
-            EasyAlertDialog alertDialog = new EasyAlertDialog(this);
-            alertDialog.setTitle("Alert");
-            alertDialog.setMessage("This is an alert dialog.");
-            alertDialog.setPositiveButtonText("OK");
-            alertDialog.setNegativeButtonText("Cancel");
-            alertDialog.setDialogListener(new DialogListener() {
-                @Override
-                public void onPositiveButtonClick() {
-                    Toast.makeText(MainActivity.this, "OK clicked", Toast.LENGTH_SHORT).show();
-                }
+    private void initViews() {
+        tv = findViewById(R.id.test_TV);
+        mtv = findViewById(R.id.test_MTV);
+        btn = findViewById(R.id.test_BTN);
+        btn.setOnClickListener(v -> changeUI());
+    }
 
-                @Override
-                public void onNegativeButtonClick() {
-                    Toast.makeText(MainActivity.this, "Cancel clicked", Toast.LENGTH_SHORT).show();
-                }
-            });
-            alertDialog.show();
-        });
-
-        findViewById(R.id.show_input_dialog).setOnClickListener(v -> {
-            EasyInputDialog inputDialog = new EasyInputDialog(this);
-            inputDialog.setTitle("Input");
-            inputDialog.setPositiveButtonText("Submit");
-            inputDialog.setNegativeButtonText("Cancel");
-            inputDialog.setDialogListener(new DialogListener() {
-                @Override
-                public void onPositiveButtonClick() {
-                    String input = inputDialog.getInputText();
-                    Toast.makeText(MainActivity.this, "Input: " + input, Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onNegativeButtonClick() {
-                    Toast.makeText(MainActivity.this, "Cancel clicked", Toast.LENGTH_SHORT).show();
-                }
-            });
-            inputDialog.show();
-        });
-
-
+    private void changeUI() {
+//        String text = "hello <c#FF1744><b>world</b></c#FF1744>, <b><i>bold and italic</i></b>, <u>underline</u>, <strike>strike</strike>, <bg.red>highlight</bg.red>, <size.20>big text</size.20> and <size.30>even bigger text</size.30>";
+//        String text = "<strike>hello</strike> <b>world</b>";
+        String text = "<b>hello</b> <b>world</b>";
+        tv.setText(SpannableParser.parse(text));
+        //mtv.setText(SpannableParser.parse(text));
     }
 }
