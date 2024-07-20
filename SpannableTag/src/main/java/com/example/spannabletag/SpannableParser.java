@@ -12,13 +12,13 @@ import java.util.Arrays;
 
 public class SpannableParser {
     private static final List<StyleApplier> STYLE_APPLIERS = Arrays.asList(
-//            new ForegroundColorApplier(),
-//            new BackgroundColorApplier(),
+            new ForegroundColorApplier(),
+            new BackgroundColorApplier(),
             new BoldApplier(),
-//            new ItalicApplier(),
-//            new UnderlineApplier(),
-            new StrikethroughApplier()
-//            new SizeApplier()
+            new ItalicApplier(),
+            new UnderlineApplier(),
+            new StrikethroughApplier(),
+            new SizeApplier()
     );
 
     public static SpannableString parse(String input) {

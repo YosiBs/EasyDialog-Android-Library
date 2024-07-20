@@ -15,22 +15,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:paddingHorizontal="12dp">
 
         <TextView
             android:id="@+id/test_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TV: Hello World! This is SpannableTag library"
-            />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/test_MTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MTV: Hello World! This is SpannableTag library"
-
-            />
+            android:text="TV: Hello World! This is SpannableTag library" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -38,8 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Test spannable tag"
-            android:layout_marginTop="15dp"
-            />
+            android:layout_marginTop="15dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

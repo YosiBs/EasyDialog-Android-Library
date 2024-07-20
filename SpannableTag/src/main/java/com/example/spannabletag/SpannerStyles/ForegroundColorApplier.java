@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.util.Log;
 
 import com.example.spannabletag.Interfaces.StyleApplier;
 
@@ -21,15 +23,35 @@ public class ForegroundColorApplier implements StyleApplier {
         while (matcher.find()) {
             String colorCode = matcher.group(1); // Capture the hex color code
             int color = Color.parseColor("#" + colorCode); // Convert hex code to color
-            int start = calculateOffset(matcher.start(2), input);
-            int end = calculateOffset(matcher.end(2), input);
-            spannableString.setSpan(new ForegroundColorSpan(color), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            int start = matcher.start(2);
+            int end = matcher.end(2);
+            int offsetStart = calculateOffset(start, input);
+            int offsetEnd = calculateOffset(end, input);
+            spannableString.setSpan(new ForegroundColorSpan(color), offsetStart, offsetEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            Log.d("ddd", "in~~~~ForegroundColorApplier:\n" +
+                    "\tstart: " + start +
+                    "\n\tend: " + end +
+                    "\n\tinput: " + input +
+                    "\n\toffsetStart: " + offsetStart +
+                    "\n\toffsetEnd: " + offsetEnd +
+                    "\n\tcolorCode: " + colorCode +
+                    "\n\tcolor: " + color +
+                    "\n\tspannableString: " + spannableString
+            );
+
+
+            for (ForegroundColorSpan appliedSpan : spannableString.getSpans(0, spannableString.length(), ForegroundColorSpan.class)) {
+                Log.d("ddd", "Span: " + appliedSpan + " Start: " + spannableString.getSpanStart(appliedSpan) + " End: " + spannableString.getSpanEnd(appliedSpan));
+            }
+
         }
     }
 
     private int calculateOffset(int originalPosition, String input) {
-        String subString = input.substring(0, originalPosition);
-        int tagsLength = subString.replaceAll("[^<]*>", "").length();
-        return originalPosition - tagsLength;
+        String beforePosition = input.substring(0, originalPosition);
+        int tagsLength = beforePosition.length() - beforePosition.replaceAll("<[^>]+>", "").length();
+        int offset = originalPosition - tagsLength;
+        return offset;
     }
 }

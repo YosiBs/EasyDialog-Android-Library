@@ -1,7 +1,14 @@
 package com.example.library_exercise2;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.TextView;
 
@@ -26,16 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         tv = findViewById(R.id.test_TV);
-        mtv = findViewById(R.id.test_MTV);
         btn = findViewById(R.id.test_BTN);
         btn.setOnClickListener(v -> changeUI());
     }
 
     private void changeUI() {
-//        String text = "hello <c#FF1744><b>world</b></c#FF1744>, <b><i>bold and italic</i></b>, <u>underline</u>, <strike>strike</strike>, <bg.red>highlight</bg.red>, <size.20>big text</size.20> and <size.30>even bigger text</size.30>";
-//        String text = "<strike>hello</strike> <b>world</b>";
-        String text = "<b>hello</b> <b>world</b>";
+        String text = "hello <c#FF1744>world</c#FF1744>, <b><i>bold and italic</i></b>, <u>underline</u>, <strike>strike</strike>, <bg#AE52D4>highlight</bg#AE52D4>, <size.1>big text</size.1> and <size.2>even bigger text</size.2>";
         tv.setText(SpannableParser.parse(text));
-        //mtv.setText(SpannableParser.parse(text));
     }
 }

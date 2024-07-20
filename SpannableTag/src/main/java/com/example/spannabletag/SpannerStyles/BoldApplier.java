@@ -1,5 +1,6 @@
 package com.example.spannabletag.SpannerStyles;
 
+import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
@@ -16,7 +17,7 @@ public class BoldApplier implements StyleApplier {
     @Override
     public void apply(SpannableString spannableString, String input) {
 
-        applyStyle(spannableString, input, TAG_REGEX, new StyleSpan(android.graphics.Typeface.BOLD));
+        applyStyle(spannableString, input, TAG_REGEX, new StyleSpan(Typeface.BOLD));
 
     }
 
