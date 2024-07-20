@@ -8,12 +8,18 @@
     <strong>SpannableTag</strong> is an Android library that simplifies the usage of the Spannable library by allowing developers to use custom tags in strings. The library parses these tags and applies the corresponding spannable styles to the text.
 </p>
 
+
+<img src="https://github.com/user-attachments/assets/4a59f3a2-d610-4ebd-aaaa-58fa07225504" alt=pic5 width="250">
+
 <h2><img src="https://github.com/YosiBs/Pokemon-Escape-Mobile-Game/assets/105666011/008a508e-5484-46ba-be36-ac359d603f01" alt=pic5 width="40" height="40"> Features</h2>
 <ul>
-    <li>Apply bold, italic, underline, strikethrough styles</li>
-    <li>Set custom text sizes</li>
-    <li>Change text color using hex codes</li>
-    <li>Flexible and easy-to-use tagging system</li>
+    <li><strong>Foreground Color:</strong> Apply custom foreground colors using hex codes. For example, <code>&lt;c#ff0000&gt;red text&lt;/c#ff0000&gt;</code> will make "red text" appear in red.</li>
+    <li><strong>Background Color:</strong> Apply custom background colors using hex codes. For example, <code>&lt;bg#00ff00&gt;green background&lt;/bg#00ff00&gt;</code> will make "green background" text have a green background.</li>
+    <li><strong>Bold:</strong> Make text bold. For example, <code>&lt;b&gt;bold text&lt;/b&gt;</code> will make "bold text" bold.</li>
+    <li><strong>Italic:</strong> Make text italic. For example, <code>&lt;i&gt;italic text&lt;/i&gt;</code> will make "italic text" italic.</li>
+    <li><strong>Underline:</strong> Underline text. For example, <code>&lt;u&gt;underlined text&lt;/u&gt;</code> will underline "underlined text".</li>
+    <li><strong>Strikethrough:</strong> Apply strikethrough to text. For example, <code>&lt;strike&gt;strikethrough text&lt;/strike&gt;</code> will add a strikethrough to "strikethrough text".</li>
+    <li><strong>Text Size:</strong> Set custom text sizes. For example, <code>&lt;size.2&gt;large text&lt;/size.2&gt;</code> will make "large text" have a size of 2.</li>
 </ul>
 
 <h2><img src="https://github.com/user-attachments/assets/4980fb42-e8b7-447c-86e9-007d8fb72644" alt=pic5 width="40" height="40"> Installation</h2>
@@ -75,14 +81,14 @@ textView.setText(spannableString);
             <td>&lt;strike&gt;strikethrough text&lt;/strike&gt;</td>
         </tr>
         <tr>
-            <td>&lt;size.{value}&gt;&lt;/size&gt;</td>
+            <td>&lt;size.{value}&gt;&lt;/size.{value}&gt;</td>
             <td>Set text size</td>
-            <td>&lt;size.30&gt;large text&lt;/size.30&gt;</td>
+            <td>&lt;size.2&gt;large text&lt;/size.2&gt;</td>
         </tr>
         <tr>
-            <td>&lt;c#{hex}&gt;&lt;/c&gt;</td>
+            <td>&lt;c#{hex}&gt;&lt;/c#{hex}&gt;</td>
             <td>Set text color using hex code</td>
-            <td>&lt;c#ff0000&gt;red text&lt;/c&gt;</td>
+            <td>&lt;c#ff0000&gt;red text&lt;/c#ff0000&gt;</td>
         </tr>
     </tbody>
 </table>
