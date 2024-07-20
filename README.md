@@ -1,9 +1,4 @@
 <h1>SpannableTag Library</h1>
-
-
-
-
-
 <p>
     <strong>SpannableTag</strong> is an Android library that simplifies the usage of the Spannable library by allowing developers to use custom tags in strings. The library parses these tags and applies the corresponding spannable styles to the text.
 </p>
@@ -23,10 +18,23 @@
 </ul>
 
 <h2><img src="https://github.com/user-attachments/assets/4980fb42-e8b7-447c-86e9-007d8fb72644" alt=pic5 width="40" height="40"> Installation</h2>
+
+<a href="https://jitpack.io/#YosiBs/SpannableTag-Android-Library"><img src="https://jitpack.io/v/YosiBs/SpannableTag-Android-Library.svg" alt=pic5 width="100"></a>
+
 <p>Add the following dependency to your <code>build.gradle</code> file:</p>
 <pre><code>
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+	repositories {
+		mavenCentral()
+		maven { url 'https://jitpack.io' }
+	}
+}
+</code></pre>
+
+<pre><code>
 dependencies {
-    implementation 'com.example:spannabletag:1.0.0'
+    implementation 'com.github.YosiBs:SpannableTag-Android-Library:Tag'
 }
 </code></pre>
 
@@ -41,7 +49,7 @@ import android.text.SpannableString;
 
 <h3>2. Use Custom Tags in Your String</h3>
 <pre><code>
-String text = "<b>hello</b> <size.30>world</size.30>";
+String text = "<b>hello</b> <size.2>world</size.2>";
 </code></pre>
 
 <h3>3. Parse the String and Apply the Styles</h3>
@@ -94,31 +102,11 @@ textView.setText(spannableString);
 </table>
 
 <h2><img src="https://github.com/user-attachments/assets/7908e7a2-ff92-4cb0-9101-96fc8a4efd30" alt=pic5 width="40" height="40"> Example</h2>
-<pre><code>
+<p>Input:</p>
 
-package com.example.myapp;
-
-import android.os.Bundle;
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
-import com.example.spannabletag.SpannableParser;
-
-public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        TextView textView = findViewById(R.id.textView);
-
-        String text = "<b>hello</b> <size.30>world</size.30>";
-        textView.setText(SpannableParser.parse(text));
-    }
-}
-
-</code></pre>
-
-
+<img src="https://github.com/user-attachments/assets/092e9816-bed1-4aa9-8577-148f6e78cf75" alt=pic5 width="2000">
+<p>Output:</p>
+<img src="https://github.com/user-attachments/assets/4b9917ee-b04c-46cf-a861-ef9f4c6d0ac2" alt=pic5 width="300">
 
 <h2><img src="https://github.com/user-attachments/assets/b308c9c5-3817-4490-8c0f-80c558895990" alt=pic5 width="40" height="40"> License</h2>
 <p>
